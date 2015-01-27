@@ -1,20 +1,21 @@
 h1 Listing projects
 
-table
-  thead
-    tr
-      th Title
-      th
-      th
-      th
-
-  tbody
-    - @projects.each do |project|
-      tr
-        td = project.title
-        td = link_to 'Show', project
-        td = link_to 'Edit', edit_project_path(project)
-        td = link_to 'Destroy', project, data: {:confirm => 'Are you sure?'}, :method => :delete
+ul
+  - @projects.each do |project|
+    li
+      = project.title
+      span
+        = link_to 'Show', project
+      span
+        = link_to 'Edit', edit_project_path(project)
+      span
+        = link_to 'Destroy', project, data: {:confirm => 'Are you sure?'}, :method => :delete
+      ul
+       - project.tasks do |task|
+        li
+          = task.title
+    
+    
 
 br
 
