@@ -1,3 +1,122 @@
 // Place all the styles related to the Tasks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* TODO - LIST */
+
+.todo-list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.table {
+	display: table;
+	border-left: 1px solid #ccc;
+}
+
+.todo-list li {
+	color: #999999;
+	position: relative;
+	font-size: 16px;
+	border-bottom: 1px solid #e7ebea;
+	padding: 12px;
+	height: 50px;
+}
+
+.todo-list .row{
+	height: 100%;
+}
+
+.todo-list .pencil {
+	border-color: #cccccc;
+}
+
+.todo-list li:hover {
+	color: #999999;
+	background-color: #fcfed5;
+	position: relative;
+	font-size: 16px;
+	border-bottom: 1px solid #e7ebea;
+	padding: 12px;
+}
+
+.todo-list li:hover .right_side {
+	display: block;
+}
+
+.todo-list li:last-child {
+	border-bottom: none;
+}
+
+.todo-list li:last-child:hover {
+	border-bottom-right-radius: 17px;
+  border-bottom-left-radius: 17px;
+}
+
+.qwer {
+	padding-left: 10px !important;
+	padding-top: 3px;
+}
+
+.done {
+	text-decoration: line-through; 
+	color: #ccc;
+}
+
+.task {
+	padding-top: 3px;
+	padding-left: 10px !important;
+}
+
+.task a{
+	color: #999999;
+}
+
+.ngdialog-button {
+  border: 0;
+  border-color: #315589;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 18px;
+  letter-spacing: .1em;
+  line-height: 1em;
+  margin: 0 0px 45px .5em;
+  background: linear-gradient(to bottom, #5183BE, #375D9E);
+  color: #fff;
+  text-shadow: 1px 1px 3px black;
+  font-weight: 600;
+  padding: 17px 34px 17px 12px;
+}
+
+.ngdialog-button img {
+	padding-right: 15px;
+}
+.center {
+	text-align: center;
+}
+
+.time {
+	padding:20px; 
+	margin-top:20px;
+	border-radius: 4px !important	;
+}
+
+.link {
+ width: 10px; /* Ширина слоя */
+ height: 10px; /* Высота слоя */
+ background: #fc0; /* Цвет фона */
+}
+
+.link a {
+ display: block; /* Ссылка как блочный элемент */
+ text-align: center; /* Выравнивание по центру */
+ height: 100%; /* Высота на весь слой */
+ color: #666; /* Цвет ссылки */
+}
+
+
+
+.arrows img {
+	display: block;
+}

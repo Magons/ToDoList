@@ -1,4 +1,25 @@
-ul
+ul.todo-list
 	- project.tasks.each do |task|
-		li
-			= link_to task.title, project_task_path(project, task)
+	  li.task
+	    div.row
+	      div.col-md-1.ol-sm-1.col-xs-1
+	        div.qwer
+	        	= check_box_tag ("task")
+	      div.col-md-9.col-sm-9.col-xs-9.task
+	        span 
+	        	= link_to task.title, project_task_path(project, task)
+	      div.col-md-2.col-sm-2.col-xs-2.right_side 
+	        div.pencil  
+	          div.arrows
+	          	= image_tag ("arrow-up.png")
+	          	= image_tag ("arrow-down.png")    
+	        div.pencil
+	        	= image_tag ("pencil_task.fw.png") 
+	        div.trash
+	         = link_to (image_tag ("trash_task.fw.png")), [project, task], :method => :delete, remote: true 
+/ ul
+/ 	- project.tasks.each do |task|
+/ 		li
+			
+/ 			span
+/ 				= link_to ' Destroy', [project, task], :method => :delete, remote: true

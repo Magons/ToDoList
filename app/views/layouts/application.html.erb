@@ -7,9 +7,32 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<div id="bg"> 
+    <%= image_tag ("bg.png") %>
+  </div>
 	<div class="container">
-		<%= render "layouts/flash"%>
-		<%= yield %>
+		<div class="row">
+      <div class="col-md-8 col-md-offset-2" >
+        <div class="logout">
+          <% if user_signed_in? %>
+            <%= link_to (image_tag ("logout.png")), destroy_user_session_path, :method => :delete%>
+          <% end %>
+        </div>
+        <div class="page-header">
+          <div class="flash">
+            <%= render "layouts/flash"%>
+          </div>
+          <h1>SIMPLE TODO LISTS</h1>
+          <h4>FROM RUBY GARAGE</h4>
+        </div>
+
+        
+				<%= yield %>
+        <footer>
+          <p>&copy; Ruby Garage</p>
+        </footer>
+      </div>
+    </div>	
 	</div>
 </body>
 </html>

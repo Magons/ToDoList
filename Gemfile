@@ -32,7 +32,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   
   gem 'better_errors'
-  # programs/.../../__better_errors for ajax
+  # /__better_errors for ajax
   gem 'pry-rails'
   gem 'binding_of_caller'
 

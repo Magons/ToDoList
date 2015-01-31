@@ -1,3 +1,125 @@
 // Place all the styles related to the Projects controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.project {
+	background-color: #fff;
+	padding-bottom: 0px;
+	border: 1px solid #b4b2aa;
+  border-bottom-right-radius: 17px;
+  border-bottom-left-radius: 17px;
+  margin-bottom: 50px;
+}
+
+.ProjectTitle {
+	background-color: #375D9E;
+	border: 1px solid;
+	border-color: #315589;
+	background: linear-gradient(to bottom, #5183BE, #375D9E);
+	height: 50px;
+	font-size: 18px;
+	font-weight: 600;
+	font-family: Arial;
+	padding: 10px 17px 5px 20px;
+ }
+
+ .ProjectTitle:hover > .right_side {
+	display: block;
+ }
+
+ .pencil {
+ 	padding-right: 10px;
+ 	padding-left: 10px;
+ 	border-right: 1px solid #4B80BE;
+ 	float: left;
+ 	
+ }
+ .trash  {
+ 	padding-left: 10px;
+ 	float: left;
+ }
+
+.title {
+	color: #fff;
+	padding-left: 20px;
+	padding-top: 15px;
+	text-shadow: 1px 1px 2px black;
+}
+
+.change {
+	margin-left: 10px;
+	border: 1px solid ;
+	border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.btn1 {
+	font-size: 12px;
+	padding: 7px;
+	border-radius: 3px;	
+	border: 1px solid #447557!important;
+}
+
+.right_side {
+	display: none;
+	float: right;
+	padding-right: 10px;
+	padding-top: 5px;
+}
+
+.panel-heading {
+	display: none !important;
+}
+
+.panel {
+	border-radius: 0px !important;
+}
+
+.well {
+	margin-top: 10px;
+}
+
+.right_side img {
+	cursor: pointer
+}
+.plus {
+	padding: 12px 0px 14px 14px !important;
+}
+
+.form {
+	padding: 5px;
+	padding-right: 8px !important;
+}
+
+.btn-default {
+	background: linear-gradient(to bottom, #96cdb0, #4d8464);
+	color: #fff;
+	border-color: #447557;	
+	font-size: 14px;
+	font-weight: 600;
+	text-shadow: 1px 1px 2px black;
+}
+
+.btn-default:focus {
+	color: #fff;
+}
+
+.btn-default:hover {
+	background: linear-gradient(to bottom, #96cdb0, #4d8464);
+	color: #fff;
+	border-color: #2e5d40;	
+	font-size: 14px;
+	font-weight: 600;
+}
+.addtask {
+	background-color: #E1E1E1;
+	height: 50px;
+}
+
+.input-group {
+	margin-bottom: 0px;
+	padding-top: 4px;
+	margin-left: -10px;
+}
+
+

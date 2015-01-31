@@ -1,0 +1,2 @@
+$('#tasks_' + "<%=@project.id%>").html('<%= j render "tasks/list", project: @project %>');
+$('.flash').html('<%= j render "layouts/flash" %>');
