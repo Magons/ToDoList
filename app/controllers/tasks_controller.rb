@@ -4,6 +4,9 @@ class TasksController < ApplicationController
 
   respond_to :html
 
+  def show
+  end
+
   def create
     @task = current_user.tasks.create(task_params)
     flash[:notice] = 'Your project successfully created.'
@@ -22,7 +25,7 @@ class TasksController < ApplicationController
 
   private
     def set_task
-      @task = Project.find(params[:id])
+      @task = Task.find(params[:id])
     end
 
     def task_params

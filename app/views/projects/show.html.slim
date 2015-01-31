@@ -3,6 +3,10 @@ p#notice = notice
 p
   strong Title:
   = @project.title
+  ul
+  	- @project.tasks.each do |task|
+  		li
+    		= task.title
 
 = link_to 'Edit', edit_project_path(@project)
 '|

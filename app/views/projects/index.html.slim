@@ -2,6 +2,7 @@ h1 Listing projects
 
 ul
   - @projects.each do |project|
+    .task_errors
     li
       = project.title
       span
@@ -10,12 +11,13 @@ ul
         = link_to 'Edit', edit_project_path(project)
       span
         = link_to 'Destroy', project, data: {:confirm => 'Are you sure?'}, :method => :delete
-      ul
-       - project.tasks do |task|
-        li
-          = task.title
-    
-    
+      = form_for [project, @task], remote: true do |f|
+        .field
+          = f.label :title
+          = f.text_field :title
+        .actions = f.submit
+      .tasks
+        = render 'tasks/list', project: project
 
 br
 
