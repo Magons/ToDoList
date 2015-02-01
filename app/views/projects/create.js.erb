@@ -1,0 +1,6 @@
+$('#myModal').modal('hide');
+<% if @project.persisted? %>
+	$(".projects").append('<%= j render "projects/project", project: @project %>');
+<% else %>
+
+<% end %>

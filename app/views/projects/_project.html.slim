@@ -1,0 +1,24 @@
+div id="tasks_errors_#{project.id}"
+  div.project
+    .ProjectTitle
+      = image_tag("project.fw.png")
+      span.title
+        = project.title
+      div.right_side
+        div.pencil
+          = image_tag ("pencil.fw.png")
+        div.trash
+          = link_to (image_tag ("trash.fw.png")), project, data: {:confirm => 'Are you sure?'}, :method => :delete, remote: true
+    div.addtask
+      .row
+        div.col-lg-12.col-md-12.col-sm-12.col-xs-12
+          div.col-md-1.col-sm-1.col-xs-1.plus
+            =image_tag ("plus.fw.png")
+          div.form.col-md-11.col-sm-11.col-xs-11.input-group
+            = form_for [project, Task.new], remote: true,  data: { project_id: project.id }, :html => {:class => "input-group"} do |f|
+              .field
+                = f.text_field :title, placeholder: "Start typing here to create a task..", class: "form-control"
+              .span.input-group-btn 
+                = f.submit 'Add Task', class: "btn btn-default"
+    .tasks id="tasks_#{project.id}"
+      = render 'tasks/list', project: project
