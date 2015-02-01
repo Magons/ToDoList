@@ -1,2 +1,2 @@
-$('.yield").html('<%= j render "projects/index" %>');
+$('div#project_' + "<%=@project.id%>").remove();
 $('.flash').html('<%= j render "layouts/flash" %>');

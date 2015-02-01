@@ -4,7 +4,7 @@
 	<% end %>
 <% else %>
 	$('#tasks_' + "<%=@project.id%>").html('<%= j render "tasks/list", project: @project %>');	
-	$('#task_title').val('');
+	$('#title_' + "<%=@project.id%>").val('');
 	$('#tasks_errors_' + "<%=@project.id%>").html('')
 	$('.flash').html('<%= j render "layouts/flash" %>');
 <% end %>
