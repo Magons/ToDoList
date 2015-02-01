@@ -10,7 +10,7 @@ class TasksController < ApplicationController
 
   def create
     @task = current_user.tasks.create(task_params.merge(project: @project))
-    flash[:notice] = 'Your project successfully created.'
+    flash.now[:notice] = 'Your project successfully created.'
     respond_with(@task)
   end
 
@@ -21,7 +21,7 @@ class TasksController < ApplicationController
 
   def destroy
     @task.destroy
-    flash[:notice] = 'Your project successfully delete.'
+    flash.now[:notice] = 'Your project successfully delete.'
     respond_with(@task)
   end
 

@@ -39,14 +39,15 @@ body a:hover{
 .logout {
   position: fixed;
   top: 10px;
-  right: 25%;
+  right: 18%;
   z-index: 999;
+  height: 10px;
+  
 }
 
 .flash {
   position: fixed;
   top: 10px;
-  left: 40%;
   z-index: 999;
 }
 

@@ -9,7 +9,7 @@
         div.pencil
           = image_tag ("pencil.fw.png")
         div.trash
-          = image_tag ("trash.fw.png")
+          = link_to (image_tag ("trash.fw.png")), project, data: {:confirm => 'Are you sure?'}, :method => :delete, remote: true
     div.addtask
       .row
         div.col-lg-12.col-md-12.col-sm-12.col-xs-12
@@ -18,16 +18,16 @@
           div.form.col-md-11.col-sm-11.col-xs-11.input-group
             = form_for [project, @task], remote: true,  data: { project_id: project.id }, :html => {:class => "input-group"} do |f|
               .field
-                = f.text_field :title, :placeholder => "Start typing here to create a task..", class: "form-control"
+                = f.text_field :title, placeholder: "Start typing here to create a task..", class: "form-control"
               .span.input-group-btn 
-                = f.submit 'Add Task', :class => "btn btn-default"
+                = f.submit 'Add Task', class: "btn btn-default"
     .tasks id="tasks_#{project.id}"
       = render 'tasks/list', project: project
         
 div.center
-  = button_tag :class => "ngdialog-button ngdialog-button-secondary" do
-    =image_tag ("plus_for_btn.fw.png")
-    =t'Add TODO List'
+  = button_tag class: "ngdialog-button ngdialog-button-secondary", data: { toggle: 'modal', target: '#myModal' } do
+    = image_tag ("plus_for_btn.fw.png")
+    | Add TODO List
 
 
 / ul
