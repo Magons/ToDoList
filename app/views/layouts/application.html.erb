@@ -10,7 +10,7 @@
 	<div id="bg"> 
     <%= image_tag ("bg.png") %>
   </div>
-	<div class="container">
+	<div class="container" id="content">
 		<div class="row">
       <div class="col-md-8 col-md-offset-2" >
         <div class="logout">
@@ -28,12 +28,13 @@
         <div class="yield">
 				  <%= yield %>
         </div>
-        <footer>
-          <p>&copy; Ruby Garage</p>
-        </footer>  
+         
         <%= render "layouts/modal"%>   
       </div>
     </div>	
 	</div>
+    <footer>
+      <p>&copy; Ruby Garage</p>
+    </footer>
 </body>
 </html>

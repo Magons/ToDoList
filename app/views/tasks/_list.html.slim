@@ -16,10 +16,6 @@ ul.todo-list
 			      .btn.btn-primary id="cancel_edit_task_#{task.id}"
         			i.fa.fa-times
 	      div.col-md-2.col-sm-2.col-xs-2.right_side 
-	        div.pencil  
-	          div.arrows
-	          	= image_tag ("arrow-up.png")
-	          	= image_tag ("arrow-down.png")    
 	        div.pencil
 	        	= image_tag ("pencil_task.fw.png"), class: "edit_task", data: { project_id: project.id, task_id: task.id } 
 	        div.trash
