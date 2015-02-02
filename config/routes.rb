@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'persons/profile', as: 'user_root'
+
   resources :projects do
     resources :tasks
   end
