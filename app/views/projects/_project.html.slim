@@ -2,11 +2,18 @@ div id="tasks_errors_#{project.id}"
 div.project id= "project_#{project.id}"
   .ProjectTitle
     = image_tag("project.fw.png")
-    span.title
+    span.title id="project_title_#{project.id}"
       = project.title
+    span.edit id="edit_#{project.id}"
+      span
+        = text_field_tag :title, project.title, id: "new_project_title_#{project.id}"
+      .btn.btn-primary id="ok_edit_#{project.id}"
+        i.fa.fa-check
+      .btn.btn-primary id="cancel_edit_#{project.id}"
+        i.fa.fa-times
     div.right_side
       div.pencil
-        = image_tag ("pencil.fw.png")
+        = image_tag ("pencil.fw.png"), class: "edit_project", data: { project_id: project.id}
       div.trash
         = link_to (image_tag ("trash.fw.png")), project, data: {:confirm => 'Are you sure?'}, :method => :delete, remote: true
   div.addtask

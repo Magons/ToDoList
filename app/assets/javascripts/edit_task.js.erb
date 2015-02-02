@@ -1,0 +1,26 @@
+$(function() {
+	$('.edit_task').on("click", function(){
+		var task_id = $(this).data('task-id');
+		var project_id =  $(this).data('project-id');
+		$('#task_title_' + task_id).hide();
+		$('#edit_task_' + task_id).show();
+		
+
+		$('#ok_edit_task_' + task_id).on("click", function(){
+			var task_title = $('#new_task_title_' + task_id).val();
+			$.ajax({
+      type: "patch",
+      url: "/projects/"+project_id+"/tasks/"+task_id,
+      data: { title: task_title }
+    	});
+    	$('#task_title_' + task_id).html(task_title);
+    	$('#task_title_' + task_id).show();
+			$('#edit_task_' + task_id).hide()
+		});
+
+		$('#cancel_edit_task_' + task_id).on("click", function(){
+			$('#task_title_' + task_id).show();
+			$('#edit_task_' + task_id).hide()
+		});
+	});
+});

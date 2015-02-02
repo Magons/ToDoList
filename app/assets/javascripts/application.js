@@ -13,5 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
-//= require twitter/bootstrap/modal
+//= require twitter/bootstrap/modal  
 //= require create_new_project
+//= require edit_project
+//= require edit_task

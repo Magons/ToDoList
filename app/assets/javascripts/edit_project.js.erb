@@ -1,0 +1,25 @@
+$(function() {
+	$('.edit_project').on("click", function(){
+		var project_id = $(this).data('project-id');
+		$('#project_title_' + project_id).hide();
+		$('#edit_' + project_id).show();
+		
+
+		$('#ok_edit_' + project_id).on("click", function(){
+			var project_title = $('#new_project_title_' + project_id).val();
+			$.ajax({
+      type: "patch",
+      url: "/projects/"+project_id,
+      data: { title: project_title }
+    	});
+    	$('#project_title_' + project_id).html(project_title);
+    	$('#project_title_' + project_id).show();
+			$('#edit_' + project_id).hide()
+		});
+
+		$('#cancel_edit_' + project_id).on("click", function(){
+			$('#project_title_' + project_id).show();
+			$('#edit_' + project_id).hide()
+		});
+	});
+});
