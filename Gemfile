@@ -26,6 +26,8 @@ gem "less-rails"
 gem 'twitter-bootstrap-rails'
 gem 'therubyracer'
 gem 'active_model_serializers'
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 group :development, :test do
   gem 'rspec-rails'

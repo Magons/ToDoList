@@ -5,5 +5,5 @@ class User < ActiveRecord::Base
   has_many :tasks
   has_many :comments
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:facebook]
 end

@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
-  get 'persons/profile', as: 'user_root'
+  get 'persons/profile'
 
   resources :projects do
     resources :tasks
   end
 
 
-  devise_for :users
+  devise_for :users, controllers: { omniauth_callbacks: 'omniauth_callbacks' }
   
 
 
