@@ -1,4 +1,4 @@
-.col-md-6.center
-	=button_tag "SignIn", class: "btn btn-primary btn-lg"
-.col-md-6.center
-	=button_tag "SignUp", class: "btn btn-primary btn-lg"
+.col-md-6.center.buttons
+	= link_to "SignIn", new_user_session_path, class: "btn btn-primary btn-lg"
+.col-md-6.center.buttons
+	= link_to "SignUp", new_user_registration_path, class: "btn btn-primary btn-lg"
