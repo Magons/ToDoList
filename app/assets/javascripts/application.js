@@ -17,3 +17,14 @@
 //= require create_new_project
 //= require edit_project
 //= require edit_task
+//= require fadeOutFlash
+
+$(function() {
+	window.showFlashMesage = function(flash_layout){
+		$('.flash').html(flash_layout);
+		$('.flash').fadeOut(2000, function(){
+			$('.flash').html('').show();
+		});
+	};
+});
+

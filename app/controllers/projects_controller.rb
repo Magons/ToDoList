@@ -40,8 +40,11 @@ class ProjectsController < ApplicationController
   # PATCH/PUT /projects/1
   # PATCH/PUT /projects/1.json
   def update
-    @project.update(project_params)
-    flash.now[:notice] = 'Project was successfully updated.'
+    if @project.update(project_params)
+     flash.now[:notice] = 'Project was successfully updated.'
+    else
+      render json: @project.errors, status: :unprocessable_entity
+    end
   end
 
   # DELETE /projects/1

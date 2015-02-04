@@ -5,6 +5,9 @@
 <% else %>
 	$('#tasks_' + "<%=@project.id%>").html('<%= j render "tasks/list", project: @project %>');	
 	$('#title_' + "<%=@project.id%>").val('');
-	$('#tasks_errors_' + "<%=@project.id%>").html('')
-	$('.flash').html('<%= j render "layouts/flash" %>');
+	$('#tasks_errors_' + "<%=@project.id%>").html('');
+
+	showFlashMesage('<%= j render "layouts/flash" %>');
+	
+	
 <% end %>

@@ -16,9 +16,10 @@ class User < ActiveRecord::Base
     user = User.where(email: email).first
     if user
       user.create_authorization(auth)
+      user.avatar = auth.info[:image]
     else
       password = Devise.friendly_token[0, 20]
-      user = User.create!(email: email, password: password, password_confirmation: password)
+      user = User.create!(email: email, avatar: auth.info[:image], password: password, password_confirmation: password)
       user.create_authorization(auth)
     end
     user

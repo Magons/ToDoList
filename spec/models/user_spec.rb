@@ -22,7 +22,7 @@ RSpec.describe User, :type => :model do
 
     context 'user has not authorization' do
       context 'user already exists' do
-        let(:auth) { OmniAuth::AuthHash.new(provider: 'facebook', uid: '123456', info: { email: user.email }) }
+        let(:auth) { OmniAuth::AuthHash.new(provider: 'facebook', uid: '123456', info: { email: user.email, image: 'image' }) }
         it 'does not create new user' do
           expect { User.find_for_oauth(auth) }.to_not change(User, :count)
         end
@@ -38,13 +38,18 @@ RSpec.describe User, :type => :model do
           expect(authorization.uid).to eq auth.uid
         end
 
+        it 'fills user image' do
+          user = User.find_for_oauth(auth)
+          expect(user.avatar).to eq auth.info[:image]
+        end
+
         it 'returns the user' do
           expect(User.find_for_oauth(auth)).to eq user
         end
       end
 
       context 'user does not exist' do
-        let(:auth) { OmniAuth::AuthHash.new(provider: 'facebook', uid: '123456', info: { email: 'new@user.com' }) }
+        let(:auth) { OmniAuth::AuthHash.new(provider: 'facebook', uid: '123456', info: { email: 'new@user.com', image: 'image' }) }
 
         it 'creates new user' do
           expect { User.find_for_oauth(auth) }.to change(User, :count).by(1)
@@ -57,6 +62,11 @@ RSpec.describe User, :type => :model do
         it 'fills user email' do
           user = User.find_for_oauth(auth)
           expect(user.email).to eq auth.info[:email]
+        end
+
+         it 'fills user image' do
+          user = User.find_for_oauth(auth)
+          expect(user.avatar).to eq auth.info[:image]
         end
 
         it 'creates authorization for user' do

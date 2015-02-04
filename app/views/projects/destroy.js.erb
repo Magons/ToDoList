@@ -1,2 +1,4 @@
 $('div#project_' + "<%=@project.id%>").remove();
-$('.flash').html('<%= j render "layouts/flash" %>');
+showFlashMesage('<%= j render "layouts/flash" %>');
+	
+

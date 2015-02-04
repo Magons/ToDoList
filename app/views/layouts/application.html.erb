@@ -15,6 +15,9 @@
       <div class="col-md-8 col-md-offset-2" >
         <div class="logout">
           <% if user_signed_in? %>
+            <span class="avatar">
+              <%= link_to (image_tag (current_user.avatar), title: 'Profile'), me_path %>
+            </span>
             <%= link_to (image_tag ("logout.png"), title: 'Logout'), destroy_user_session_path, :method => :delete%>
           <% end %>
         </div>
