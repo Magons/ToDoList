@@ -29,7 +29,7 @@ class ProjectsController < ApplicationController
 
     # respond_to do |format|
     @project.save
-
+    flash.now[:notice] = 'Project was successfully create.'
     #   else
     #     format.html { render :new }
     #     format.json { render json: @project.errors, status: :unprocessable_entity }

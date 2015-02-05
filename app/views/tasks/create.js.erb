@@ -1,6 +1,6 @@
 <% if @task.errors.present? %>
 	<% @task.errors.full_messages.each do |message| %>
-		$('#tasks_errors_' + "<%=@project.id%>").html('<%= j message %>')
+		$('.flash').html('<%= j message %>')
 	<% end %>
 <% else %>
 	$('#tasks_' + "<%=@project.id%>").html('<%= j render "tasks/list", project: @project %>');	

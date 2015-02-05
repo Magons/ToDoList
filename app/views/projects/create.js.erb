@@ -1,6 +1,13 @@
 $('#myModal').modal('hide');
-<% if @project.persisted? %>
-	$(".projects").append('<%= j render "projects/project", project: @project %>');
+<% if @project.errors.present? %>
+	<% @project.errors.full_messages.each do |message| %>
+		showFlashMesage('<p class="alert alert-danger"><%= j message %></p>');
+	<% end %>
 <% else %>
+	<% if @project.persisted? %>
+		$(".projects").append('<%= j render "projects/project", project: @project %>');
+		showFlashMesage('<%= j render "layouts/flash" %>');
+	<% end %>
+	<% end %>
+	
 
-<% end %>
