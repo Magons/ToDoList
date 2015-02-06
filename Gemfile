@@ -40,6 +40,9 @@ group :development, :test do
   # /__better_errors for ajax
   gem 'pry-rails'
   gem 'binding_of_caller'
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'capybara-webkit'
 
   # # Access an IRB console on exception pages or by using <%= console %> in views
   # gem 'web-console', '~> 2.0'

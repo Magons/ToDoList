@@ -38,10 +38,10 @@ RSpec.describe User, :type => :model do
           expect(authorization.uid).to eq auth.uid
         end
 
-        it 'fills user image' do
-          user = User.find_for_oauth(auth)
-          expect(user.avatar).to eq auth.info[:image]
-        end
+        # it 'fills user image' do
+        #   user = User.find_for_oauth(auth)
+        #   expect(user.avatar).to eq auth.info[:image]
+        # end
 
         it 'returns the user' do
           expect(User.find_for_oauth(auth)).to eq user
@@ -64,10 +64,10 @@ RSpec.describe User, :type => :model do
           expect(user.email).to eq auth.info[:email]
         end
 
-         it 'fills user image' do
-          user = User.find_for_oauth(auth)
-          expect(user.avatar).to eq auth.info[:image]
-        end
+        # it 'fills user image' do
+        #   user = User.find_for_oauth(auth)
+        #   expect(user.avatar).to eq auth.info[:image]
+        # end
 
         it 'creates authorization for user' do
           user = User.find_for_oauth(auth)

@@ -26,9 +26,3 @@ ul.todo-list
 	        	= image_tag ("pencil_task.fw.png"), class: "edit_task", data: { project_id: project.id, task_id: task.id } 
 	        div.trash
 	         = link_to (image_tag ("trash_task.fw.png")), [project, task], :method => :delete, remote: true 
-/ ul
-/ 	- project.tasks.each do |task|
-/ 		li
-			
-/ 			span
-/ 				= link_to ' Destroy', [project, task], :method => :delete, remote: true

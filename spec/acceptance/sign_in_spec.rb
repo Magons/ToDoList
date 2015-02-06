@@ -1,0 +1,21 @@
+require 'rails_helper'
+
+describe "User sign in", "In order to be able to do list As an user i want to be able to sign in" do 
+
+	let(:user) { create(:user) }
+
+	it 'Refistered  user try to sign in' do
+		sign_in(user)
+		expect(page).to have_content 'Signed in successfully.'
+		expect(current_path).to eq '/projects'
+	end
+
+	it 'Not-refistered  user try to sign in' do
+		visit 	new_user_session_path
+		fill_in 'user_email', with: 'wrong@test.com'
+		fill_in 'user_password', with: '12345678'
+		click_on 'Log in'
+		expect(page).to have_content 'Invalid email or password.'
+		expect(current_path).to eq new_user_session_path
+	end
+end
