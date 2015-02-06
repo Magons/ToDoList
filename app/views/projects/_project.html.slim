@@ -13,9 +13,9 @@ div.project id= "project_#{project.id}"
         i.fa.fa-times
     div.right_side
       div.pencil
-        = image_tag ("pencil.fw.png"), class: "edit_project", data: { project_id: project.id}
-      div.trash
-        = link_to (image_tag ("trash.fw.png")), project, data: {:confirm => 'Are you sure?'}, :method => :delete, remote: true
+        = image_tag ("pencil.fw.png"), id: "edit_project_#{project.id}", class: "edit_project", data: { project_id: project.id}
+      div.trash id="trash_#{project.id}"
+        = link_to (image_tag ("trash.fw.png")), project, data: {:confirm => 'Are you sure?'}, :method => :delete, remote: true, id: "trash_#{project.id}"
   div.addtask
     .row
       div.col-lg-12.col-md-12.col-sm-12.col-xs-12

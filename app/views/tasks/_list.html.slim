@@ -8,8 +8,6 @@ ul.todo-list
 	      div.col-md-9.col-sm-9.col-xs-9.task
 	        span id="task_title_#{task.id}" class=(class_title(task.done))
 	        	= link_to task.title, project_task_path(project, task)
-	        	span Приоритет 
-	        	= task.prioritise
 	        span.edit id="edit_task_#{task.id}"
 			      span
 			        = text_field_tag :title, task.title, id: "new_task_title_#{task.id}"

@@ -3,7 +3,6 @@ $(function() {
 		var project_id = $(this).data('project-id');
 		$('#project_title_' + project_id).hide();
 		$('#edit_' + project_id).show();
-		
 
 		$('#ok_edit_' + project_id).on("click", function(){
 			var project_title = $('#new_project_title_' + project_id).val();

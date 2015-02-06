@@ -3,8 +3,8 @@ require 'rails_helper'
 describe "User sign in", "In order to be able to do list As an user i want to be able to sign in" do 
 
 	let(:user) { create(:user) }
-
-	it 'Refistered  user try to sign in' do
+	
+	it 'Registered  user try to sign in' do
 		sign_in(user)
 		expect(page).to have_content 'Signed in successfully.'
 		expect(current_path).to eq '/projects'
