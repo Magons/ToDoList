@@ -1,5 +1,6 @@
 $(function() {
-	$(".task-check").bind('change', function(){
+	$("#content").on('click', '.task-check', function(){
+    debugger
 		var task_id = this.value;
 		var project_id =  $(this).data('project-id');
     var bool = this.checked;
