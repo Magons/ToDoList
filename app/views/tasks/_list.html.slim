@@ -4,10 +4,12 @@ ul.todo-list
 	    div.row
 	      div.col-md-1.ol-sm-1.col-xs-1
 	        div.qwer
-	        	= check_box_tag ("task")
+	        	= check_box_tag 'checked_in', task.id , task.done, :class => "task-check", data: { project_id: project.id}
 	      div.col-md-9.col-sm-9.col-xs-9.task
-	        span id="task_title_#{task.id}" 
+	        span id="task_title_#{task.id}" class=(class_title(task.done))
 	        	= link_to task.title, project_task_path(project, task)
+	        	span Приоритет 
+	        	= task.prioritise
 	        span.edit id="edit_task_#{task.id}"
 			      span
 			        = text_field_tag :title, task.title, id: "new_task_title_#{task.id}"
@@ -15,7 +17,11 @@ ul.todo-list
 			        i.fa.fa-check
 			      .btn.btn-primary id="cancel_edit_task_#{task.id}"
         			i.fa.fa-times
-	      div.col-md-2.col-sm-2.col-xs-2.right_side 
+	      div.col-md-2.col-sm-2.col-xs-2.right_side
+	      	div.pencil
+		      	div.arrows
+							= image_tag ("arrow-up.png"), class: "task_up", data: { project_id: project.id, task_id: task.id }
+							= image_tag ("arrow-down.png"), class: "task_down", data: { project_id: project.id, task_id: task.id }
 	        div.pencil
 	        	= image_tag ("pencil_task.fw.png"), class: "edit_task", data: { project_id: project.id, task_id: task.id } 
 	        div.trash

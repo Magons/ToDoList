@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   has_many :tasks
   has_many :comments
   has_many :authorizations
+  mount_uploader :avatar, AvatarUploader
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:facebook]
 

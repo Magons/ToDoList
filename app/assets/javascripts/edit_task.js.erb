@@ -1,5 +1,5 @@
 $(function() {
-	$('.edit_task').on("click", function(){
+	$('.tasks').on("click", '.edit_task', function(){
 		var task_id = $(this).data('task-id');
 		var project_id =  $(this).data('project-id');
 		$('#task_title_' + task_id).hide();
@@ -9,13 +9,19 @@ $(function() {
 		$('#ok_edit_task_' + task_id).on("click", function(){
 			var task_title = $('#new_task_title_' + task_id).val();
 			$.ajax({
-      type: "patch",
-      url: "/projects/"+project_id+"/tasks/"+task_id,
-      data: { title: task_title }
+	      type: "patch",
+	      url: "/projects/"+project_id+"/tasks/"+task_id,
+	      data: { task: {title: task_title} },
+	      success: function(){
+	      	$('#task_title_' + task_id).html(task_title);
+		    	$('#task_title_' + task_id).show();
+					$('#edit_task_' + task_id).hide();
+		      },
+	      error: function(e){
+	      	error_title = JSON.parse(e.responseText)['title'][0];
+	      	$('.flash').append(showFlashMesage('<p class="alert alert-danger">Title '+ error_title +'</p>'));
+	      }
     	});
-    	$('#task_title_' + task_id).html(task_title);
-    	$('#task_title_' + task_id).show();
-			$('#edit_task_' + task_id).hide()
 		});
 
 		$('#cancel_edit_task_' + task_id).on("click", function(){

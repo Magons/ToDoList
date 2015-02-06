@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: [:show, :edit, :update, :destroy]
-  before_action :find_project, only: [:create, :destroy]
+  before_action :set_task, only: [:show, :edit, :update, :destroy, :task_up, :task_down]
+  before_action :find_project, only: [:create, :destroy, :task_up, :task_down]
   before_action :authenticate_user!
 
   respond_to :js
@@ -10,6 +10,8 @@ class TasksController < ApplicationController
 
   def create
     @task = current_user.tasks.create(task_params.merge(project: @project))
+    @task.prioritise = @project.tasks.count
+    @task.save
     flash.now[:notice] = 'Your task successfully created.'
     respond_with(@task)
   end
@@ -24,6 +26,14 @@ class TasksController < ApplicationController
     @task.destroy
     flash.now[:notice] = 'Your task successfully delete.'
     respond_with(@task)
+  end
+
+  def task_up
+    @task.up(@task, @project.id)
+  end
+
+  def task_down
+    @task.down(@task, @project.id)
   end
 
   private

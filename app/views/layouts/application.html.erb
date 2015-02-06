@@ -16,7 +16,7 @@
         <div class="logout">
           <% if user_signed_in? %>
             <span class="avatar">
-              <%= link_to (image_tag (current_user.avatar), title: 'Profile'), me_path %>
+              <%= link_to (image_tag (current_user.avatar_url(:thumb).to_s), title: 'Profile'), me_path %>
             </span>
             <%= link_to (image_tag ("logout.png"), title: 'Logout'), destroy_user_session_path, :method => :delete%>
           <% end %>
@@ -25,7 +25,7 @@
           <div class="flash">
             <%= render "layouts/flash"%>
           </div>
-          <h1>SIMPLE TODO LISTS</h1>
+          <h1><%= link_to 'SIMPLE TODO LISTS', root_path %></h1>
           <h4>FROM RUBY GARAGE</h4>
         </div>
         <div class="yield">

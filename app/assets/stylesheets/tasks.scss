@@ -28,6 +28,10 @@
 	display: none;
 }
 
+.task_title_complete {
+	text-decoration: line-through;
+}
+
 .todo-list .row{
 	height: 100%;
 }
@@ -47,7 +51,6 @@
 
 .todo-list li:hover .right_side {
 	display: block;
-	padding-left: 45px;
 }
 
 .todo-list li:last-child {
@@ -120,8 +123,10 @@
  color: #666; /* Цвет ссылки */
 }
 
-
-
+.arrows {
+	padding-top: 4px;
+	padding-bottom: 1px;
+}
 .arrows img {
 	display: block;
 }

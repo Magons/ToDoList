@@ -25,9 +25,12 @@ gem 'devise'
 gem "less-rails"
 gem 'twitter-bootstrap-rails'
 gem 'therubyracer'
+
 gem 'active_model_serializers'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'carrierwave'
+gem 'rmagick'
 
 group :development, :test do
   gem 'rspec-rails'

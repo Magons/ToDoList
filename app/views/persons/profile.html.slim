@@ -1,5 +1,10 @@
-= current_user.email
+= @user.email
 br
-= image_tag (current_user.avatar)
-= current_user.first_name
-= current_user.last_name
+= image_tag (@user.avatar_url(:thumb).to_s)
+br
+= form_for @user, url: persons_update_path, :html => {:multipart => true}, method: :patch do |f|
+  p
+    = f.file_field :avatar 
+  p
+  	= f.submit 
+

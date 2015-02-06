@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150203112629) do
+ActiveRecord::Schema.define(version: 20150205182227) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,9 +51,10 @@ ActiveRecord::Schema.define(version: 20150203112629) do
     t.date     "deadline"
     t.boolean  "done"
     t.integer  "project_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
     t.integer  "user_id"
+    t.integer  "prioritise", default: 1
   end
 
   add_index "tasks", ["project_id"], name: "index_tasks_on_project_id", using: :btree

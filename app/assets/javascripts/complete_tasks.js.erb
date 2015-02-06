@@ -1,0 +1,24 @@
+$(function() {
+	$(".task-check").bind('change', function(){
+		var task_id = this.value;
+		var project_id =  $(this).data('project-id');
+    var bool = this.checked;
+    $.ajax({
+    	type: "patch",
+      url: "/projects/"+project_id+"/tasks/"+this.value,
+      data: { task: {done: this.checked} },
+      success: function(){
+        if (bool==true) {
+      	 $('#task_title_' + task_id).addClass("task_title_complete");
+        }
+        else {
+          $('#task_title_' + task_id).removeClass("task_title_complete");
+        }
+	      },
+      error: function(e){
+      	error_title = JSON.parse(e.responseText)['title'][0];
+      	$('.flash').append(showFlashMesage('<p class="alert alert-danger">Title '+ error_title +'</p>'));
+	      }
+    });
+	});
+});

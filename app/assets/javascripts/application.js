@@ -18,11 +18,13 @@
 //= require edit_project
 //= require edit_task
 //= require fadeOutFlash
+//= require complete_tasks
+//= require task_prioritise
 
 $(function() {
 	window.showFlashMesage = function(flash_layout){
 		$('.flash').html(flash_layout);
-		$('.flash').fadeOut(2000, function(){
+		$('.flash').fadeOut(3000, function(){
 			$('.flash').html('').show();
 		});
 	};

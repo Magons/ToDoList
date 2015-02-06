@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   root 'welcome#index'
   get 'me', to: 'persons#profile'
+  patch 'persons/update'
+  patch 'projects/:project_id/tasks/task_up/:id', to: 'tasks#task_up'
+  patch 'projects/:project_id/tasks/task_down/:id', to: 'tasks#task_down'
 
   resources :projects do
     resources :tasks

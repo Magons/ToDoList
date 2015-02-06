@@ -3,7 +3,6 @@ $(function() {
 		var project_title;
 		project_title = $('#new_project_title').val();
 
-		debugger
 
 
 		$.ajax({
@@ -11,7 +10,6 @@ $(function() {
       url: "/projects",
       data: { title: project_title },
       error: function(e){
-      	debugger
 	      	error_title = JSON.parse(e.responseText)['title'][0];
 	      	$('.flash').append(createFlashMessage(error_title));
 	      }
