@@ -1,6 +1,8 @@
 = @user.email
 br
-= image_tag (@user.avatar_url(:thumb).to_s)
+- if @user.avatar_url
+		div.profile_avatar
+			= image_tag (@user.avatar_url(:thumb).to_s)
 br
 = form_for @user, url: persons_update_path, :html => {:multipart => true}, method: :patch do |f|
   p

@@ -17,9 +17,12 @@ class TasksController < ApplicationController
   end
 
   def update
-    @task.update(task_params)
-    flash.now[:notice] = 'Task was successfully updated.'
-    respond_with(@task)
+    if @task.update(task_params)
+      flash.now[:notice] = 'Task was successfully updated.'
+      respond_with(@task)
+    else
+      render json: @task.errors, status: :unprocessable_entity
+    end
   end
 
   def destroy

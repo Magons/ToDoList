@@ -1,5 +1,4 @@
 <% if @task.errors.present? %>
-	debugger
 	<% @task.errors.full_messages.each do |message| %>
 		showFlashMesage('<p class="alert alert-danger"><%= j message %></p>')
 	<% end %>

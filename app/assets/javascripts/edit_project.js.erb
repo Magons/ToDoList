@@ -7,7 +7,7 @@ $(function() {
 		$('#ok_edit_' + project_id).on("click", function(){
 			var project_title = $('#new_project_title_' + project_id).val();
 			$.ajax({
-	      type: "patch",
+	      type: "put",
 	      url: "/projects/"+project_id,
 	      data: { title: project_title },
 	      success: function(){

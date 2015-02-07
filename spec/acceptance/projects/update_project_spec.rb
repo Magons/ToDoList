@@ -24,7 +24,6 @@ describe "Update project" do
 		page.find("#edit_project_#{project.id}").click
 		fill_in "new_project_title_#{project.id}", with: ''
 		page.find("#ok_edit_#{project.id}").click
-		screenshot_and_open_image
 		expect(page).to have_content "Title can't be blank"
 	end
 end

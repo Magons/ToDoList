@@ -9,7 +9,7 @@ $(function() {
 		$('#ok_edit_task_' + task_id).on("click", function(){
 			var task_title = $('#new_task_title_' + task_id).val();
 			$.ajax({
-	      type: "patch",
+	      type: "put",
 	      url: "/projects/"+project_id+"/tasks/"+task_id,
 	      data: { task: {title: task_title} },
 	      success: function(){
