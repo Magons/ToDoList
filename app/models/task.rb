@@ -8,21 +8,15 @@ class Task < ActiveRecord::Base
 
 	default_scope { order('prioritise') }
 
-	def up (task, id)
-		task2 = Task.find_by project_id: id, prioritise: (task.prioritise-1)
+	def task_prioritise (id, flag)
+		flag==1 ? up = -1 : up = 1
+		flag==-1 ? down = -1 : down = 1
+		task2 = Task.find_by project_id: id, prioritise: (self.prioritise + flag)
 		if task2
-			task2.prioritise += 1
+			task2.prioritise += up
 			task2.save
-			task.prioritise -=1
-			task.save
+			self.prioritise += down
+			self.save
 		end
-	end
-
-	def down (task, id)
-		task2 = Task.find_by project_id: id, prioritise: (task.prioritise+1)
-		task2.prioritise -= 1
-		task2.save
-		task.prioritise +=1
-		task.save
 	end
 end

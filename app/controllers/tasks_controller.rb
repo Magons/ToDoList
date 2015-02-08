@@ -6,7 +6,7 @@ class TasksController < ApplicationController
   respond_to :js
 
   def create
-    @task = current_user.tasks.create(task_params.merge(project_id: @project.id, prioritise: @project.tasks.count))
+    @task = current_user.tasks.create(task_params.merge(project_id: @project.id, prioritise: @project.tasks.count + 1))
 
     flash.now[:notice] = 'Your task successfully created.'
     respond_with(@task)
@@ -28,11 +28,11 @@ class TasksController < ApplicationController
   end
 
   def task_up
-    @task.up(@task, @project.id)
+    @task.task_prioritise(@project.id, -1)
   end
 
   def task_down
-    @task.down(@task, @project.id)
+    @task.task_prioritise(@project.id, 1)
   end
 
   private
