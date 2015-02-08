@@ -2,9 +2,6 @@ $(function() {
 	$('#new_project_submit').on("click", function(){
 		var project_title;
 		project_title = $('#new_project_title').val();
-
-
-
 		$.ajax({
       type: "POST",
       url: "/projects",
@@ -17,8 +14,6 @@ $(function() {
 
 		var createFlashMessage = function(title){
     		return '<p class="alert alert-danger">Title '+title+'</p>'
-    	};
-
-
+    };
 	});
 });

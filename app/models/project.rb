@@ -1,6 +1,7 @@
 class Project < ActiveRecord::Base
-	validates :title, presence: true
-	belongs_to :user
 	has_many :tasks, dependent: :destroy
+	belongs_to :user
+	validates :title, presence: true
+	
 	default_scope { order('created_at') }
 end

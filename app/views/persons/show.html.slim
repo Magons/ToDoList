@@ -4,7 +4,7 @@ br
 		div.profile_avatar
 			= image_tag (@user.avatar_url(:thumb).to_s)
 br
-= form_for @user, url: persons_update_path, :html => {:multipart => true}, method: :patch do |f|
+= form_for @user, url: persons_path, :html => {:multipart => true}, method: :patch do |f|
   p
     = f.file_field :avatar 
   p

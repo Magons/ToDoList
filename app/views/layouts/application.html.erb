@@ -16,7 +16,7 @@
         <div class="logout">
           <% if user_signed_in? %>
             <span class="avatar">
-              <%= link_to (image_tag (current_user.avatar_url(:thumb).to_s), title: 'Profile'), me_path %>
+              <%= link_to (image_tag (current_user.avatar_url(:thumb).to_s), title: 'Profile'), persons_path %>
             </span>
             <%= link_to (image_tag ("logout.png"), title: 'Logout'), destroy_user_session_path, :method => :delete%>
           <% end %>

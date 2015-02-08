@@ -9,8 +9,8 @@ describe "User try change his avatar" do
 	}
 
 	it 'user try to change avatar' do
-		find(:xpath, "//a[@href='/me']").click
-		expect(current_path).to eq '/me'
+		find(:xpath, "//a[@href='/persons']").click
+		expect(current_path).to eq '/persons'
 		attach_file 'user_avatar', "#{Rails.root}/app/assets/images/plus.fw.png"
 		click_on 'Update User'
 		expect(page).to have_css ".profile_avatar"

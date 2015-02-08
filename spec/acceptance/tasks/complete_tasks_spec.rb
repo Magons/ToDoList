@@ -13,6 +13,7 @@ describe "Complete task" do
 	
 	it 'authenticated user choose task as complete', js: true do
 		find('#checked_in').click
+		sleep 1
 		q = false
 		q = find("#task_title_#{task.id}")[:class].include?("task_title_complete")
 		expect(q).to eq true

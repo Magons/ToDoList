@@ -1,11 +1,11 @@
 class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
   has_many :projects
   has_many :tasks
   has_many :comments
   has_many :authorizations
+
   mount_uploader :avatar, AvatarUploader
+  
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:facebook]
 
@@ -25,6 +25,7 @@ class User < ActiveRecord::Base
     end
     user
   end
+
 
   def create_authorization(auth)
     self.authorizations.create(provider: auth.provider, uid: auth.uid)

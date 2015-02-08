@@ -5,13 +5,9 @@ class TasksController < ApplicationController
 
   respond_to :js
 
-  def show
-  end
-
   def create
-    @task = current_user.tasks.create(task_params.merge(project: @project))
-    @task.prioritise = @project.tasks.count
-    @task.save
+    @task = current_user.tasks.create(task_params.merge(project_id: @project.id, prioritise: @project.tasks.count))
+
     flash.now[:notice] = 'Your task successfully created.'
     respond_with(@task)
   end
@@ -19,7 +15,7 @@ class TasksController < ApplicationController
   def update
     if @task.update(task_params)
       flash.now[:notice] = 'Task was successfully updated.'
-      respond_with(@task)
+      render nothing: true, status: 200
     else
       render json: @task.errors, status: :unprocessable_entity
     end
@@ -50,6 +46,6 @@ class TasksController < ApplicationController
     end
 
     def task_params
-      params.require(:task).permit(:title, :deadline, :done)
+      params.require(:task).permit(:title, :done)
     end
 end

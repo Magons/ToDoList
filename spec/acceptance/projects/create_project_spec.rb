@@ -20,7 +20,6 @@ describe "Create project" do
 	it 'authenticated user creates project with empty title', js: true do
 		fill_in 'new_project_title', with: ""
 		click_on 'Save'
-		screenshot_and_open_image
 		expect(page).to have_content "Title can't be blank"
 	end
 end
