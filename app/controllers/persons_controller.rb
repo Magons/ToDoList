@@ -5,12 +5,12 @@ class PersonsController < ApplicationController
 
   def update
   	@user = current_user
-    @user.avatar = params[:user][:avatar]
+    @user.avatar = user_avatar_params[:avatar]
     @user.save!    
     redirect_to persons_path
   end
 
-  def user_avatar
-  	 params.permit[:user][:avatar]
+  def user_avatar_params
+  	 params.require(:user).permit(:avatar)
   end
 end

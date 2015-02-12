@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   mount_uploader :avatar, AvatarUploader
   
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:facebook]
+         :omniauthable, omniauth_providers: [:facebook]
 
   def self.find_for_oauth(auth)
     authorization = Authorization.where(provider: auth.provider, uid: auth.uid.to_s).first
